@@ -17,6 +17,7 @@
 
 import Logging
 import SwiftUI
+import TextMarkupKit
 import UIKit
 
 private let logger = Logger(label: "DocumentBrowserViewController")
@@ -82,8 +83,54 @@ final class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDo
 
   // MARK: Document Presentation
 
+  private let defaultAttributes: AttributedStringAttributes = {
+    var defaultAttributes = AttributedStringAttributes()
+    defaultAttributes.font = UIFont.preferredFont(forTextStyle: .body)
+    defaultAttributes.color = .label
+    defaultAttributes.headIndent = 28
+    defaultAttributes.firstLineHeadIndent = 28
+    return defaultAttributes
+  }()
+
+  private let formattingFunctions: [NodeType: FormattingFunction] = {
+    let formattingFunctions: [NodeType: FormattingFunction] = [
+      .delimiter: { $1.color = .tertiaryLabel },
+      .emphasis: { $1.italic = true },
+      .hashtag: { $1.backgroundColor = .secondarySystemBackground },
+      .header: {
+        let headingDelimiter = $0.children[0]
+        assert(headingDelimiter.type == .delimiter)
+        switch headingDelimiter.length {
+        case 1:
+          $1.textStyle = .title1
+        case 2:
+          $1.textStyle = .title2
+        case 3:
+          $1.textStyle = .title3
+        default:
+          $1.bold = true
+        }
+        $1.listLevel = 1
+      },
+      .list: { $1.listLevel += 1 },
+      .strongEmphasis: { $1.bold = true },
+    ]
+    return formattingFunctions
+  }()
+
+  private let replacementFunctions: [NodeType: ReplacementFunction] = [
+    .softTab: { _, _ in Array("\t".utf16) },
+    .unorderedListOpening: { _, _ in Array("\u{2022}".utf16) },
+  ]
+
   func presentDocument(at documentURL: URL) {
-    let document = PlainTextDocument(fileURL: documentURL)
+    let document = IncrementalParsingTextDocument(
+      fileURL: documentURL,
+      grammar: MiniMarkdownGrammar(),
+      defaultAttributes: defaultAttributes,
+      formattingFunctions: formattingFunctions,
+      replacementFunctions: replacementFunctions
+    )
 
     // Access the document
     document.open(completionHandler: { success in
@@ -101,7 +148,7 @@ final class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDo
     })
   }
 
-  func closeDocument(_ document: PlainTextDocument) {
+  func closeDocument(_ document: IncrementalParsingTextDocument) {
     dismiss(animated: true) {
       document.close(completionHandler: nil)
     }

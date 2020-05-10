@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D326C5E6246897320084F307 /* IncrementalParsingTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D326C5E5246897320084F307 /* IncrementalParsingTextView.swift */; };
+		D326C5E9246898180084F307 /* TextMarkupKit in Frameworks */ = {isa = PBXBuildFile; productRef = D326C5E8246898180084F307 /* TextMarkupKit */; };
 		D3E63CAF2464462200A704BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CAE2464462200A704BE /* AppDelegate.swift */; };
 		D3E63CB12464462200A704BE /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CB02464462200A704BE /* DocumentBrowserViewController.swift */; };
 		D3E63CB32464462200A704BE /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CB22464462200A704BE /* DocumentView.swift */; };
-		D3E63CB52464462200A704BE /* PlainTextDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CB42464462200A704BE /* PlainTextDocument.swift */; };
+		D3E63CB52464462200A704BE /* IncrementalParsingTextDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CB42464462200A704BE /* IncrementalParsingTextDocument.swift */; };
 		D3E63CBA2464462300A704BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E63CB92464462300A704BE /* Assets.xcassets */; };
 		D3E63CBD2464462300A704BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E63CBB2464462300A704BE /* LaunchScreen.storyboard */; };
 		D3E63CC82464462300A704BE /* ScrapPaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CC72464462300A704BE /* ScrapPaperTests.swift */; };
@@ -36,11 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D326C5E5246897320084F307 /* IncrementalParsingTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementalParsingTextView.swift; sourceTree = "<group>"; };
 		D3E63CAB2464462200A704BE /* Scrap Paper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scrap Paper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E63CAE2464462200A704BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3E63CB02464462200A704BE /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
 		D3E63CB22464462200A704BE /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
-		D3E63CB42464462200A704BE /* PlainTextDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTextDocument.swift; sourceTree = "<group>"; };
+		D3E63CB42464462200A704BE /* IncrementalParsingTextDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncrementalParsingTextDocument.swift; sourceTree = "<group>"; };
 		D3E63CB92464462300A704BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3E63CBC2464462300A704BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3E63CBE2464462300A704BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D326C5E9246898180084F307 /* TextMarkupKit in Frameworks */,
 				D3E63CE224644FEA00A704BE /* Logging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -104,7 +108,8 @@
 				D3E63CAE2464462200A704BE /* AppDelegate.swift */,
 				D3E63CB02464462200A704BE /* DocumentBrowserViewController.swift */,
 				D3E63CB22464462200A704BE /* DocumentView.swift */,
-				D3E63CB42464462200A704BE /* PlainTextDocument.swift */,
+				D326C5E5246897320084F307 /* IncrementalParsingTextView.swift */,
+				D3E63CB42464462200A704BE /* IncrementalParsingTextDocument.swift */,
 				D3E63CB92464462300A704BE /* Assets.xcassets */,
 				D3E63CBB2464462300A704BE /* LaunchScreen.storyboard */,
 				D3E63CBE2464462300A704BE /* Info.plist */,
@@ -148,6 +153,7 @@
 			name = ScrapPaper;
 			packageProductDependencies = (
 				D3E63CE124644FEA00A704BE /* Logging */,
+				D326C5E8246898180084F307 /* TextMarkupKit */,
 			);
 			productName = ScrapPaper;
 			productReference = D3E63CAB2464462200A704BE /* Scrap Paper.app */;
@@ -223,6 +229,7 @@
 			mainGroup = D3E63CA22464462200A704BE;
 			packageReferences = (
 				D3E63CE024644FEA00A704BE /* XCRemoteSwiftPackageReference "swift-log" */,
+				D326C5E7246898180084F307 /* XCRemoteSwiftPackageReference "TextMarkupKit" */,
 			);
 			productRefGroup = D3E63CAC2464462200A704BE /* Products */;
 			projectDirPath = "";
@@ -266,8 +273,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3E63CB52464462200A704BE /* PlainTextDocument.swift in Sources */,
+				D3E63CB52464462200A704BE /* IncrementalParsingTextDocument.swift in Sources */,
 				D3E63CB12464462200A704BE /* DocumentBrowserViewController.swift in Sources */,
+				D326C5E6246897320084F307 /* IncrementalParsingTextView.swift in Sources */,
 				D3E63CB32464462200A704BE /* DocumentView.swift in Sources */,
 				D3E63CAF2464462200A704BE /* AppDelegate.swift in Sources */,
 			);
@@ -594,6 +602,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D326C5E7246898180084F307 /* XCRemoteSwiftPackageReference "TextMarkupKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bdewey/TextMarkupKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
 		D3E63CE024644FEA00A704BE /* XCRemoteSwiftPackageReference "swift-log" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apple/swift-log";
@@ -605,6 +621,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D326C5E8246898180084F307 /* TextMarkupKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D326C5E7246898180084F307 /* XCRemoteSwiftPackageReference "TextMarkupKit" */;
+			productName = TextMarkupKit;
+		};
 		D3E63CE124644FEA00A704BE /* Logging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D3E63CE024644FEA00A704BE /* XCRemoteSwiftPackageReference "swift-log" */;

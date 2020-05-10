@@ -15,27 +15,29 @@
 //  specific language governing permissions and limitations
 //  under the License.
 
+import SwiftUI
+import TextMarkupKit
 import UIKit
 
-/// The contents of a file exposed as a single string.
-final class PlainTextDocument: UIDocument, ObservableObject {
-  static let errorDomain = "org.brians-brain.PlainTextDocument"
+struct IncrementalParsingTextView: UIViewRepresentable {
+  let textStorage: NSTextStorage
 
-  enum Error: Int {
-    case invalidContentsFormat
+  func makeUIView(context: Context) -> UITextView {
+    let layoutManager = NSLayoutManager()
+    let textContainer = NSTextContainer()
+    layoutManager.addTextContainer(textContainer)
+    textStorage.addLayoutManager(layoutManager)
+    let textView = UITextView(frame: .zero, textContainer: textContainer)
+    return textView
   }
 
-  /// The file contents.
-  @Published var text: String = ""
-
-  override func contents(forType typeName: String) throws -> Any {
-    text.data(using: .utf8)!
+  func updateUIView(_ uiView: UITextView, context: Context) {
+    // ??
   }
+}
 
-  override func load(fromContents contents: Any, ofType typeName: String?) throws {
-    guard let data = contents as? Data else {
-      throw NSError(domain: Self.errorDomain, code: Error.invalidContentsFormat.rawValue, userInfo: nil)
-    }
-    text = String(data: data, encoding: .utf8)!
+struct IncrementalParsingTextView_Previews: PreviewProvider {
+  static var previews: some View {
+    IncrementalParsingTextView(textStorage: NSTextStorage())
   }
 }
