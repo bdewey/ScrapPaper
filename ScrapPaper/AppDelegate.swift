@@ -1,15 +1,37 @@
-// Copyright © 2020 Brian's Brain. All rights reserved.
+//  Licensed to the Apache Software Foundation (ASF) under one
+//  or more contributor license agreements.  See the NOTICE file
+//  distributed with this work for additional information
+//  regarding copyright ownership.  The ASF licenses this file
+//  to you under the Apache License, Version 2.0 (the
+//  "License"); you may not use this file except in compliance
+//  with the License.  You may obtain a copy of the License at
+//
+//  http://www.apache.org/licenses/LICENSE-2.0
+//
+//  Unless required by applicable law or agreed to in writing,
+//  software distributed under the License is distributed on an
+//  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+//  KIND, either express or implied.  See the License for the
+//  specific language governing permissions and limitations
+//  under the License.
 
+import Logging
+import MobileCoreServices
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+final class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
-
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
+  func application(
+    _ application: UIApplication,
+    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+  ) -> Bool {
+    LoggingSystem.bootstrap(StreamLogHandler.standardError)
+    let window = UIWindow(frame: UIScreen.main.bounds)
+    window.rootViewController = DocumentBrowserViewController(forOpeningFilesWithContentTypes: [kUTTypeText as String])
+    window.makeKeyAndVisible()
+    self.window = window
     return true
   }
 
@@ -30,27 +52,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
   }
 
-  func application(_ app: UIApplication, open inputURL: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+  func application(_ app: UIApplication, open inputURL: URL, options: [UIApplication.OpenURLOptionsKey: Any] = [:]) -> Bool {
     // Ensure the URL is a file URL
     guard inputURL.isFileURL else { return false }
-            
+
     // Reveal / import the document at the URL
     guard let documentBrowserViewController = window?.rootViewController as? DocumentBrowserViewController else { return false }
 
-    documentBrowserViewController.revealDocument(at: inputURL, importIfNeeded: true) { (revealedDocumentURL, error) in
-        if let error = error {
-            // Handle the error appropriately
-            print("Failed to reveal the document at URL \(inputURL) with error: '\(error)'")
-            return
-        }
-        
-        // Present the Document View Controller for the revealed URL
-        documentBrowserViewController.presentDocument(at: revealedDocumentURL!)
+    documentBrowserViewController.revealDocument(at: inputURL, importIfNeeded: true) { revealedDocumentURL, error in
+      if let error = error {
+        // Handle the error appropriately
+        print("Failed to reveal the document at URL \(inputURL) with error: '\(error)'")
+        return
+      }
+
+      // Present the Document View Controller for the revealed URL
+      documentBrowserViewController.presentDocument(at: revealedDocumentURL!)
     }
 
     return true
   }
-
-
 }
-

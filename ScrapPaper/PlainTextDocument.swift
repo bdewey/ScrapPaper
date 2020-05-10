@@ -15,22 +15,27 @@
 //  specific language governing permissions and limitations
 //  under the License.
 
-import SwiftUI
+import UIKit
 
-struct DocumentView: View {
-  var document: UIDocument
-  var dismiss: () -> Void
+/// The contents of a file exposed as a single string.
+final class PlainTextDocument: UIDocument, ObservableObject {
+  static let errorDomain = "org.brians-brain.PlainTextDocument"
 
-  var body: some View {
-    VStack {
-      HStack {
-        Text("File Name")
-          .foregroundColor(.secondary)
+  enum Error: Int {
+    case invalidContentsFormat
+  }
 
-        Text(document.fileURL.lastPathComponent)
-      }
+  /// The file contents.
+  @Published var text: String = ""
 
-      Button("Done", action: dismiss)
+  override func contents(forType typeName: String) throws -> Any {
+    text.data(using: .utf8)!
+  }
+
+  override func load(fromContents contents: Any, ofType typeName: String?) throws {
+    guard let data = contents as? Data else {
+      throw NSError(domain: Self.errorDomain, code: Error.invalidContentsFormat.rawValue, userInfo: nil)
     }
+    text = String(data: data, encoding: .utf8)!
   }
 }

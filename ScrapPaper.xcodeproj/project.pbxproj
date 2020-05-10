@@ -3,19 +3,19 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		D3E63CAF2464462200A704BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CAE2464462200A704BE /* AppDelegate.swift */; };
 		D3E63CB12464462200A704BE /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CB02464462200A704BE /* DocumentBrowserViewController.swift */; };
 		D3E63CB32464462200A704BE /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CB22464462200A704BE /* DocumentView.swift */; };
-		D3E63CB52464462200A704BE /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CB42464462200A704BE /* Document.swift */; };
-		D3E63CB82464462200A704BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E63CB62464462200A704BE /* Main.storyboard */; };
+		D3E63CB52464462200A704BE /* PlainTextDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CB42464462200A704BE /* PlainTextDocument.swift */; };
 		D3E63CBA2464462300A704BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3E63CB92464462300A704BE /* Assets.xcassets */; };
 		D3E63CBD2464462300A704BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3E63CBB2464462300A704BE /* LaunchScreen.storyboard */; };
 		D3E63CC82464462300A704BE /* ScrapPaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CC72464462300A704BE /* ScrapPaperTests.swift */; };
 		D3E63CD32464462300A704BE /* ScrapPaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CD22464462300A704BE /* ScrapPaperUITests.swift */; };
+		D3E63CE224644FEA00A704BE /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D3E63CE124644FEA00A704BE /* Logging */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,12 +36,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D3E63CAB2464462200A704BE /* ScrapPaper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrapPaper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3E63CAB2464462200A704BE /* Scrap Paper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scrap Paper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E63CAE2464462200A704BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3E63CB02464462200A704BE /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
 		D3E63CB22464462200A704BE /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
-		D3E63CB42464462200A704BE /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		D3E63CB72464462200A704BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D3E63CB42464462200A704BE /* PlainTextDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainTextDocument.swift; sourceTree = "<group>"; };
 		D3E63CB92464462300A704BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3E63CBC2464462300A704BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3E63CBE2464462300A704BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -58,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3E63CE224644FEA00A704BE /* Logging in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,7 +91,7 @@
 		D3E63CAC2464462200A704BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D3E63CAB2464462200A704BE /* ScrapPaper.app */,
+				D3E63CAB2464462200A704BE /* Scrap Paper.app */,
 				D3E63CC32464462300A704BE /* ScrapPaperTests.xctest */,
 				D3E63CCE2464462300A704BE /* ScrapPaperUITests.xctest */,
 			);
@@ -104,8 +104,7 @@
 				D3E63CAE2464462200A704BE /* AppDelegate.swift */,
 				D3E63CB02464462200A704BE /* DocumentBrowserViewController.swift */,
 				D3E63CB22464462200A704BE /* DocumentView.swift */,
-				D3E63CB42464462200A704BE /* Document.swift */,
-				D3E63CB62464462200A704BE /* Main.storyboard */,
+				D3E63CB42464462200A704BE /* PlainTextDocument.swift */,
 				D3E63CB92464462300A704BE /* Assets.xcassets */,
 				D3E63CBB2464462300A704BE /* LaunchScreen.storyboard */,
 				D3E63CBE2464462300A704BE /* Info.plist */,
@@ -147,8 +146,11 @@
 			dependencies = (
 			);
 			name = ScrapPaper;
+			packageProductDependencies = (
+				D3E63CE124644FEA00A704BE /* Logging */,
+			);
 			productName = ScrapPaper;
-			productReference = D3E63CAB2464462200A704BE /* ScrapPaper.app */;
+			productReference = D3E63CAB2464462200A704BE /* Scrap Paper.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D3E63CC22464462300A704BE /* ScrapPaperTests */ = {
@@ -219,6 +221,9 @@
 				Base,
 			);
 			mainGroup = D3E63CA22464462200A704BE;
+			packageReferences = (
+				D3E63CE024644FEA00A704BE /* XCRemoteSwiftPackageReference "swift-log" */,
+			);
 			productRefGroup = D3E63CAC2464462200A704BE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -237,7 +242,6 @@
 			files = (
 				D3E63CBD2464462300A704BE /* LaunchScreen.storyboard in Resources */,
 				D3E63CBA2464462300A704BE /* Assets.xcassets in Resources */,
-				D3E63CB82464462200A704BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3E63CB52464462200A704BE /* Document.swift in Sources */,
+				D3E63CB52464462200A704BE /* PlainTextDocument.swift in Sources */,
 				D3E63CB12464462200A704BE /* DocumentBrowserViewController.swift in Sources */,
 				D3E63CB32464462200A704BE /* DocumentView.swift in Sources */,
 				D3E63CAF2464462200A704BE /* AppDelegate.swift in Sources */,
@@ -301,14 +305,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D3E63CB62464462200A704BE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D3E63CB72464462200A704BE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D3E63CBB2464462300A704BE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -446,7 +442,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.brians-brain.ScrapPaper";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = ScrapPaper;
+				PRODUCT_NAME = "Scrap Paper";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -464,7 +461,8 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.brians-brain.ScrapPaper";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_MODULE_NAME = ScrapPaper;
+				PRODUCT_NAME = "Scrap Paper";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -594,6 +592,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3E63CE024644FEA00A704BE /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3E63CE124644FEA00A704BE /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3E63CE024644FEA00A704BE /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D3E63CA32464462200A704BE /* Project object */;
 }
