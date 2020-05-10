@@ -47,7 +47,7 @@ final class IncrementalParsingTextDocument: UIDocument {
   let textStorage: IncrementalParsingTextStorage
 
   override func contents(forType typeName: String) throws -> Any {
-    textStorage.string.data(using: .utf8)!
+    textStorage.rawText.data(using: .utf8)!
   }
 
   override func load(fromContents contents: Any, ofType typeName: String?) throws {
