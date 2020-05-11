@@ -141,6 +141,8 @@ final class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDo
         })
 
         let documentViewController = UIHostingController(rootView: view)
+        documentViewController.modalPresentationStyle = .fullScreen
+        documentViewController.modalTransitionStyle = .crossDissolve
         self.present(documentViewController, animated: true, completion: nil)
       } else {
         // Make sure to handle the failed import appropriately, e.g., by presenting an error message to the user.

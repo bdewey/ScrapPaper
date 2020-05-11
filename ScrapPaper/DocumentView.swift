@@ -22,9 +22,10 @@ struct DocumentView: View {
   var dismiss: () -> Void
 
   var body: some View {
-    VStack {
+    NavigationView {
       IncrementalParsingTextView(textStorage: document.textStorage)
-      Button("Done", action: dismiss)
+        .navigationBarItems(trailing: Button("Done", action: dismiss))
+        .navigationBarTitle(Text(document.fileURL.lastPathComponent), displayMode: .inline)
     }
   }
 }
