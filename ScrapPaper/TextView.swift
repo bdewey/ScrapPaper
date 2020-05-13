@@ -16,12 +16,14 @@
 //  under the License.
 
 import SwiftUI
-import TextMarkupKit
 import UIKit
 
-struct IncrementalParsingTextView: UIViewRepresentable {
+/// Exposes a UITextView in SwiftUI.
+/// The underlying data for the UITextView comes directly from an NSTextStorage instance.
+struct TextView: UIViewRepresentable {
   let textStorage: NSTextStorage
 
+  /// Creates a UITextView bound to `textStorage`
   func makeUIView(context: Context) -> UITextView {
     let layoutManager = NSLayoutManager()
     let textContainer = NSTextContainer()
@@ -31,14 +33,12 @@ struct IncrementalParsingTextView: UIViewRepresentable {
     return textView
   }
 
-  func updateUIView(_ uiView: UITextView, context: Context) {
-    // ??
-  }
+  func updateUIView(_ uiView: UITextView, context: Context) {}
 }
 
 struct IncrementalParsingTextView_Previews: PreviewProvider {
   static var previews: some View {
-    IncrementalParsingTextView(textStorage: NSTextStorage())
+    TextView(textStorage: NSTextStorage())
   }
 }
 
@@ -46,6 +46,11 @@ struct IncrementalParsingTextView_Previews: PreviewProvider {
 private final class ReadableTextView: UITextView {
   override func layoutSubviews() {
     super.layoutSubviews()
-    textContainerInset = UIEdgeInsets(top: 8, left: readableContentGuide.layoutFrame.minX, bottom: 8, right: bounds.maxX - readableContentGuide.layoutFrame.maxX)
+    textContainerInset = UIEdgeInsets(
+      top: 8,
+      left: readableContentGuide.layoutFrame.minX,
+      bottom: 8,
+      right: bounds.maxX - readableContentGuide.layoutFrame.maxX
+    )
   }
 }

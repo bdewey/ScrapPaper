@@ -17,13 +17,17 @@
 
 import SwiftUI
 
+/// Displays and allows editing the contents of a TextStorageDocument.
 struct DocumentView: View {
-  var document: IncrementalParsingTextDocument
+  /// The document to edit.
+  var document: TextStorageDocument
+
+  /// A block to invoke to dismiss this view.
   var dismiss: () -> Void
 
   var body: some View {
     NavigationView {
-      IncrementalParsingTextView(textStorage: document.textStorage)
+      TextView(textStorage: document.textStorage)
         .navigationBarItems(trailing: Button("Done", action: dismiss))
         .navigationBarTitle(Text(document.fileURL.lastPathComponent), displayMode: .inline)
     }.navigationViewStyle(StackNavigationViewStyle())
