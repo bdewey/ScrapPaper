@@ -26,6 +26,6 @@ struct DocumentView: View {
       IncrementalParsingTextView(textStorage: document.textStorage)
         .navigationBarItems(trailing: Button("Done", action: dismiss))
         .navigationBarTitle(Text(document.fileURL.lastPathComponent), displayMode: .inline)
-    }
+    }.navigationViewStyle(StackNavigationViewStyle())
   }
 }
