@@ -27,7 +27,7 @@ struct IncrementalParsingTextView: UIViewRepresentable {
     let textContainer = NSTextContainer()
     layoutManager.addTextContainer(textContainer)
     textStorage.addLayoutManager(layoutManager)
-    let textView = UITextView(frame: .zero, textContainer: textContainer)
+    let textView = ReadableTextView(frame: .zero, textContainer: textContainer)
     return textView
   }
 
@@ -39,5 +39,13 @@ struct IncrementalParsingTextView: UIViewRepresentable {
 struct IncrementalParsingTextView_Previews: PreviewProvider {
   static var previews: some View {
     IncrementalParsingTextView(textStorage: NSTextStorage())
+  }
+}
+
+/// This is a simple subclass that constrains the text container to the readableContentGuide.
+private final class ReadableTextView: UITextView {
+  override func layoutSubviews() {
+    super.layoutSubviews()
+    textContainerInset = UIEdgeInsets(top: 8, left: readableContentGuide.layoutFrame.minX, bottom: 8, right: bounds.maxX - readableContentGuide.layoutFrame.maxX)
   }
 }
