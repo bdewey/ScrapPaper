@@ -46,6 +46,9 @@ final class IncrementalParsingTextDocument: UIDocument {
   /// The file contents.
   let textStorage: IncrementalParsingTextStorage
 
+  /// Private flag letting us know if we are in the middle of loading contents from disk.
+  private var loadingContents = false
+
   override func contents(forType typeName: String) throws -> Any {
     textStorage.rawText.data(using: .utf8)!
   }
@@ -54,12 +57,15 @@ final class IncrementalParsingTextDocument: UIDocument {
     guard let data = contents as? Data else {
       throw NSError(domain: Self.errorDomain, code: Error.invalidContentsFormat.rawValue, userInfo: nil)
     }
+    loadingContents = true
     textStorage.setAttributedString(NSAttributedString(string: String(data: data, encoding: .utf8)!))
+    loadingContents = false
   }
 }
 
 extension IncrementalParsingTextDocument: NSTextStorageDelegate {
   func textStorage(_ textStorage: NSTextStorage, didProcessEditing editedMask: NSTextStorage.EditActions, range editedRange: NSRange, changeInLength delta: Int) {
+    guard editedMask.contains(.editedCharacters), !loadingContents else { return }
     updateChangeCount(.done)
   }
 }
