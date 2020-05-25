@@ -1,18 +1,10 @@
-# Welcome to Scrap Paper
+# Loading, Editing, and Saving Plain Text
 
-The goal of the Scrap Paper tutorial series is to walk you through the steps in creating a simple notes / writing app — something like Bear, Ulysses, or iA Writer. The nice thing about a notes app is that it’s simple enough to explain, really easy to get started, yet offers a ton to explore. I’ve been building my own personal notes app for over a year now, and I’ve found it’s been a great vehicle for trying my hand at new technology. From core computer science concepts like parsing expression grammars and conflict-free replicated data types to Apple-specific technology like SwiftUI and iCloud syncing, a notes app lets you explore them all.
+Welcome to Part 1 of the Scrap Paper tutorial. In this section, we start from nothing and end with an app that can load, edit, and save plain text files.
 
-I’ve written this tutorial assuming you’re following along in Xcode and creating your own project / source code. Additionally, you can refer to snapshots of my copy of the code.
+I recommend you follow along with the steps below in your own Xcode project. You can see my version of this step at [Part 1](https://github.com/bdewey/ScrapPaper/releases/tag/Part1).
 
-### A note about what we’re going to build
-Scrap Paper embraces the “plain text” ethos. The mental model it supports is “my notes are just text files in a directory,” and in the early stages of the tutorial that will be the implementation. (Later steps will explore the tradeoffs of storing the notes in a database.) Like many iOS writing apps, Scrap Paper will support simple formatting, links, and embedded images through Markdown-inspired syntax. Notes locked to a single device aren’t that useful, so Scrap Paper will use iCloud to synchronize notes across your devices.
-
-### Prerequisites
-* I assume you know the basics of Swift — this isn’t a language tutorial.
-* I assume you know the *concepts* behind SwiftUI. I don’t think anyone’s an *expert* at SwiftUI yet, so we’ll be discovering things about SwiftUI together.
-
-## Let’s edit some files!
-You’ve got to start somewhere! For the first step in our notes app, we’re going to write an app that can edit plain text files.
+To create your own version of Scrap Paper:
 
 1. **Start with a Document Based App**. This is the most fun part of any new programming endeavor: Opening Xcode and doing File -> New Project. Select the **Document Based App** project template. 
 ![](Part1/4E6E1178-6E85-4128-96F8-3715DC9E7384.png)
