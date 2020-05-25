@@ -1,5 +1,4 @@
 # Welcome to Scrap Paper
-#editor
 
 The goal of the Scrap Paper tutorial series is to walk you through the steps in creating a simple notes / writing app — something like Bear, Ulysses, or iA Writer. The nice thing about a notes app is that it’s simple enough to explain, really easy to get started, yet offers a ton to explore. I’ve been building my own personal notes app for over a year now, and I’ve found it’s been a great vehicle for trying my hand at new technology. From core computer science concepts like parsing expression grammars and conflict-free replicated data types to Apple-specific technology like SwiftUI and iCloud syncing, a notes app lets you explore them all.
 
@@ -28,9 +27,7 @@ You now have something you can build & run. It’ll bring up the standard iOS Do
 3. **Get rid of main.storyboard** I don’t use storyboards, and this project won’t, either.
 	1. Delete **main.storyboard**
 	2. Go to Project Properties -> Info and delete **Main storyboard file base name**
-	
 ![](Part1/2CAEEA00-E3E5-456D-AFD4-E2A2C741E9D9.png)
-
 	3. In `AppDelegate.swift`, update `application(_:didFinishLaunchingWithOptions:)` to the following:
 
 ```swift
@@ -257,4 +254,5 @@ Before we move on to the next step in building our notes app (creating a more ef
 
 1. (Easy) Showing the file contents as a sheet over the document browser doesn’t make a lot of sense. Change the presentation so it is full-screen instead.
 2. (Medium) The UITextView doesn’t work with Dark Mode or Dynamic Type. Fix this! (Hint: We never set attributes for our text in our `UIDocument` subclass.)
-3. (Hard) The line lengths in the text editor are unreasonably long. `UIKit` provides a `readableContentGuide` — use this to set margins for the text.
+3. (Medium) In the current implementation, loading file contents winds up triggering a file save. Why does this happen, and can you fix it?
+4. (Hard) The line lengths in the text editor are unreasonably long. `UIKit` provides a `readableContentGuide` — use this to set margins for the text.
