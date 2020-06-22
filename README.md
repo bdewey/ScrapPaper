@@ -28,3 +28,7 @@ Things this tutorial will cover:
 * [Part 1](Tutorial/Part1.md)
 
   In this part, we start with the absolute basics for a writing app -- loading, editing, and saving plain text.
+
+* [Part 2](Tutorial/Part2.md)
+
+  We're going to write our first custom collection type in Swift! While you may think of a text file as an array of characters, an array is an inefficient data structure for editing text. In an array, it's too expensive to make changes in the middle of a file. We'll explore other structures more suitable for text editing, and implement one of them -- a *piece table*. We'll make our piece table implementation conform to `Collection` and `RangeReplaceableCollection` so it feels like a first-class citizen in Swift.
