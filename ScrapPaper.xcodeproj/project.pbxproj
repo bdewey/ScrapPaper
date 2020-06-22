@@ -17,6 +17,7 @@
 		D3E63CC82464462300A704BE /* ScrapPaperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CC72464462300A704BE /* ScrapPaperTests.swift */; };
 		D3E63CD32464462300A704BE /* ScrapPaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CD22464462300A704BE /* ScrapPaperUITests.swift */; };
 		D3E63CE224644FEA00A704BE /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D3E63CE124644FEA00A704BE /* Logging */; };
+		D3EFD37C2487E2070055369F /* PieceTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EFD37B2487E2070055369F /* PieceTable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		D3E63CCE2464462300A704BE /* ScrapPaperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrapPaperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E63CD22464462300A704BE /* ScrapPaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapPaperUITests.swift; sourceTree = "<group>"; };
 		D3E63CD42464462300A704BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3EFD37B2487E2070055369F /* PieceTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				D3E63CB22464462200A704BE /* DocumentView.swift */,
 				D3E63CBE2464462300A704BE /* Info.plist */,
 				D3E63CBB2464462300A704BE /* LaunchScreen.storyboard */,
+				D3EFD37B2487E2070055369F /* PieceTable.swift */,
 				D3E63CB42464462200A704BE /* TextStorageDocument.swift */,
 				D326C5E5246897320084F307 /* TextView.swift */,
 			);
@@ -274,6 +277,7 @@
 				D326C5E6246897320084F307 /* TextView.swift in Sources */,
 				D3E63CB32464462200A704BE /* DocumentView.swift in Sources */,
 				D3E63CAF2464462200A704BE /* AppDelegate.swift in Sources */,
+				D3EFD37C2487E2070055369F /* PieceTable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
