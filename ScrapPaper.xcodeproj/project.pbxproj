@@ -18,6 +18,7 @@
 		D3E63CD32464462300A704BE /* ScrapPaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CD22464462300A704BE /* ScrapPaperUITests.swift */; };
 		D3E63CE224644FEA00A704BE /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D3E63CE124644FEA00A704BE /* Logging */; };
 		D3EFD37C2487E2070055369F /* PieceTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EFD37B2487E2070055369F /* PieceTable.swift */; };
+		D3F9B7C124E057F000E9C48C /* PieceTablePlainTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9B7C024E057F000E9C48C /* PieceTablePlainTextStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		D3E63CD22464462300A704BE /* ScrapPaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapPaperUITests.swift; sourceTree = "<group>"; };
 		D3E63CD42464462300A704BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3EFD37B2487E2070055369F /* PieceTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTable.swift; sourceTree = "<group>"; };
+		D3F9B7C024E057F000E9C48C /* PieceTablePlainTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTablePlainTextStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				D3E63CBE2464462300A704BE /* Info.plist */,
 				D3E63CBB2464462300A704BE /* LaunchScreen.storyboard */,
 				D3EFD37B2487E2070055369F /* PieceTable.swift */,
+				D3F9B7C024E057F000E9C48C /* PieceTablePlainTextStorage.swift */,
 				D3E63CB42464462200A704BE /* TextStorageDocument.swift */,
 				D326C5E5246897320084F307 /* TextView.swift */,
 			);
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3F9B7C124E057F000E9C48C /* PieceTablePlainTextStorage.swift in Sources */,
 				D3E63CB52464462200A704BE /* TextStorageDocument.swift in Sources */,
 				D3E63CB12464462200A704BE /* DocumentBrowserViewController.swift in Sources */,
 				D326C5E6246897320084F307 /* TextView.swift in Sources */,

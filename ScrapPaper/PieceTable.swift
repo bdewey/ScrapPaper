@@ -66,7 +66,13 @@ extension PieceTable: Collection {
     }
   }
 
-  public var startIndex: Index { Index(pieceIndex: 0, contentIndex: pieces.first?.startIndex ?? 0) }
+  public var startIndex: Index {
+    if let piece = pieces.first, !piece.isEmpty {
+      return Index(pieceIndex: 0, contentIndex: piece.startIndex)
+    } else {
+      return endIndex
+    }
+  }
   public var endIndex: Index { Index(pieceIndex: pieces.endIndex, contentIndex: 0) }
 
   public func index(after i: Index) -> Index {

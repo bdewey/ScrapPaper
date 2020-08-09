@@ -26,7 +26,7 @@ final class TextStorageDocument: UIDocument {
   override init(
     fileURL: URL
   ) {
-    self.textStorage = NSTextStorage()
+    self.textStorage = PieceTablePlainTextStorage()
     super.init(fileURL: fileURL)
     textStorage.delegate = self
   }
