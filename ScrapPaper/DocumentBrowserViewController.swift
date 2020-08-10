@@ -93,7 +93,7 @@ final class DocumentBrowserViewController: UIDocumentBrowserViewController, UIDo
         // Display the content of the document:
         let view = DocumentView(document: document, dismiss: {
           self.closeDocument(document)
-        })
+        }).environmentObject(PerformanceCounters())
 
         let documentViewController = UIHostingController(rootView: view)
         documentViewController.modalPresentationStyle = .fullScreen

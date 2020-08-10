@@ -23,6 +23,8 @@ import UIKit
 struct TextView: UIViewRepresentable {
   let textStorage: NSTextStorage
 
+  @EnvironmentObject var performanceCounters: PerformanceCounters
+
   /// Creates a UITextView bound to `textStorage`
   func makeUIView(context: Context) -> UITextView {
     let layoutManager = NSLayoutManager()
@@ -30,6 +32,7 @@ struct TextView: UIViewRepresentable {
     layoutManager.addTextContainer(textContainer)
     textStorage.addLayoutManager(layoutManager)
     let textView = ReadableTextView(frame: .zero, textContainer: textContainer)
+    textView.performanceCounters = performanceCounters
     return textView
   }
 
@@ -44,6 +47,8 @@ struct IncrementalParsingTextView_Previews: PreviewProvider {
 
 /// This is a simple subclass that constrains the text container to the readableContentGuide.
 private final class ReadableTextView: UITextView {
+  var performanceCounters: PerformanceCounters?
+
   override func layoutSubviews() {
     super.layoutSubviews()
     textContainerInset = UIEdgeInsets(
@@ -52,5 +57,12 @@ private final class ReadableTextView: UITextView {
       bottom: 8,
       right: bounds.maxX - readableContentGuide.layoutFrame.maxX
     )
+  }
+
+  override func insertText(_ text: String) {
+    let start = CACurrentMediaTime()
+    super.insertText(text)
+    let end = CACurrentMediaTime()
+    performanceCounters?.addObservation((end - start) * 1000, forKey: "typing")
   }
 }

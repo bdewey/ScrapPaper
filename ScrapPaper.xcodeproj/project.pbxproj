@@ -19,6 +19,7 @@
 		D3E63CE224644FEA00A704BE /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D3E63CE124644FEA00A704BE /* Logging */; };
 		D3EFD37C2487E2070055369F /* PieceTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EFD37B2487E2070055369F /* PieceTable.swift */; };
 		D3F9B7C124E057F000E9C48C /* PieceTablePlainTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9B7C024E057F000E9C48C /* PieceTablePlainTextStorage.swift */; };
+		D3F9B7C324E0CC2E00E9C48C /* PerformanceCounters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9B7C224E0CC2E00E9C48C /* PerformanceCounters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		D3E63CD42464462300A704BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3EFD37B2487E2070055369F /* PieceTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTable.swift; sourceTree = "<group>"; };
 		D3F9B7C024E057F000E9C48C /* PieceTablePlainTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTablePlainTextStorage.swift; sourceTree = "<group>"; };
+		D3F9B7C224E0CC2E00E9C48C /* PerformanceCounters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceCounters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 				D3F9B7C024E057F000E9C48C /* PieceTablePlainTextStorage.swift */,
 				D3E63CB42464462200A704BE /* TextStorageDocument.swift */,
 				D326C5E5246897320084F307 /* TextView.swift */,
+				D3F9B7C224E0CC2E00E9C48C /* PerformanceCounters.swift */,
 			);
 			path = ScrapPaper;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3F9B7C124E057F000E9C48C /* PieceTablePlainTextStorage.swift in Sources */,
+				D3F9B7C324E0CC2E00E9C48C /* PerformanceCounters.swift in Sources */,
 				D3E63CB52464462200A704BE /* TextStorageDocument.swift in Sources */,
 				D3E63CB12464462200A704BE /* DocumentBrowserViewController.swift in Sources */,
 				D326C5E6246897320084F307 /* TextView.swift in Sources */,

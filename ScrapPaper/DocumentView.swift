@@ -25,9 +25,15 @@ struct DocumentView: View {
   /// A block to invoke to dismiss this view.
   var dismiss: () -> Void
 
+  @EnvironmentObject var performanceCounters: PerformanceCounters
+
   var body: some View {
     NavigationView {
       TextView(textStorage: document.textStorage)
+        .overlay(VStack {
+          Spacer()
+          Text("Key timing: \(performanceCounters.counters["typing"]?.mean ?? 0.0) ms")
+        })
         .navigationBarItems(trailing: Button("Done", action: dismiss))
         .navigationBarTitle(Text(document.fileURL.lastPathComponent), displayMode: .inline)
     }.navigationViewStyle(StackNavigationViewStyle())
