@@ -106,6 +106,24 @@ extension PieceTable: Collection {
     let sourceArray = self.sourceArray(for: pieces[position.pieceIndex].source)
     return sourceArray[position.contentIndex]
   }
+
+  /// Gets a substring of the PieceTable contents.
+  public subscript<R: RangeExpression>(boundsExpression: R) -> [unichar] where R.Bound == Index {
+    let bounds = boundsExpression.relative(to: self)
+    guard !bounds.isEmpty else { return [] }
+    let pieceIndexLowerBound = bounds.lowerBound.pieceIndex
+    let pieceIndexUpperBound = bounds.upperBound.pieceIndex
+    var results = [unichar]()
+    var pieceIndex = pieceIndexLowerBound
+    repeat {
+      let piece = pieces[pieceIndex]
+      let lowerBound = (pieceIndex == pieceIndexLowerBound) ? bounds.lowerBound.contentIndex : piece.startIndex
+      let upperBound = (pieceIndex == pieceIndexUpperBound) ? bounds.upperBound.contentIndex : piece.endIndex
+      results.append(contentsOf: sourceArray(for: piece.source)[lowerBound ..< upperBound])
+      pieceIndex += 1
+    } while pieceIndex < pieceIndexUpperBound
+    return results
+  }
 }
 
 extension PieceTable: RangeReplaceableCollection {

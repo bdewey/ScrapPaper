@@ -19,7 +19,7 @@ public final class PieceTablePlainTextStorage: NSTextStorage {
     // from the piece table. It will be much more efficient to build the array one piece at a time.
     //
     // Optimization #2: Memoize this!
-    String(utf16CodeUnits: Array(pieceTable), count: pieceTable.count)
+    String(utf16CodeUnits: pieceTable[pieceTable.startIndex ..< pieceTable.endIndex], count: pieceTable.count)
   }
 
   /// As this is plain text storage, it will always return the same set of attributes.
