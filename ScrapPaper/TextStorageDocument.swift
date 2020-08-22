@@ -26,7 +26,11 @@ final class TextStorageDocument: UIDocument {
   override init(
     fileURL: URL
   ) {
-    self.textStorage = PieceTablePlainTextStorage()
+//    self.textStorage = NSTextStorage()
+    self.textStorage = PieceTablePlainTextStorage(plainTextAttributes: [
+      .font: UIFont.preferredFont(forTextStyle: .body),
+      .foregroundColor: UIColor.label,
+    ])
     super.init(fileURL: fileURL)
     textStorage.delegate = self
   }
@@ -51,11 +55,7 @@ final class TextStorageDocument: UIDocument {
     // with dynamic type and dark mode.
 
     let attributedString = NSAttributedString(
-      string: String(data: data, encoding: Self.encoding)!,
-      attributes: [
-        .font: UIFont.preferredFont(forTextStyle: .body),
-        .foregroundColor: UIColor.label,
-      ]
+      string: String(data: data, encoding: Self.encoding)!
     )
 
     // Setting the contents of `textStorage` will cause a delegate message; we don't want to

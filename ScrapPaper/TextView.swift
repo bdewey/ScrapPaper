@@ -15,8 +15,11 @@
 //  specific language governing permissions and limitations
 //  under the License.
 
+import os
 import SwiftUI
 import UIKit
+
+private let log = OSLog(subsystem: "org.brians-brain.ScrapPaper", category: "TextView")
 
 /// Exposes a UITextView in SwiftUI.
 /// The underlying data for the UITextView comes directly from an NSTextStorage instance.
@@ -60,9 +63,11 @@ private final class ReadableTextView: UITextView {
   }
 
   override func insertText(_ text: String) {
+    os_signpost(.begin, log: log, name: "keystroke")
     let start = CACurrentMediaTime()
     super.insertText(text)
     let end = CACurrentMediaTime()
+    os_signpost(.end, log: log, name: "keystroke")
     performanceCounters?.addObservation((end - start) * 1000, forKey: "typing")
   }
 }
