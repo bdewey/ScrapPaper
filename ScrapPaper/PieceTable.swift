@@ -44,6 +44,8 @@ public struct PieceTable {
     var isEmpty: Bool { startIndex == endIndex }
   }
 
+  public private(set) var count: Int
+
   /// The logical contents of the collection, expressed as an array of pieces from either `originalContents` or `newContents`
   private var pieces: [Piece]
 
@@ -51,12 +53,14 @@ public struct PieceTable {
   public init(_ string: String) {
     self.originalContents = Array(string.utf16)
     self.addedContents = []
+    self.count = originalContents.count
     self.pieces = [Piece(source: .original, startIndex: 0, endIndex: originalContents.count)]
   }
 
   public init() {
     self.originalContents = []
     self.addedContents = []
+    self.count = 0
     self.pieces = [Piece(source: .original, startIndex: 0, endIndex: 0)]
   }
 }
@@ -246,6 +250,8 @@ extension PieceTable: RangeReplaceableCollection {
     with newElements: C
   ) where C: Collection, R: RangeExpression, unichar == C.Element, Index == R.Bound {
     let range = subrange.relative(to: self)
+    let replacedDistance = distance(from: range.lowerBound, to: range.upperBound)
+    count += (newElements.count - replacedDistance)
 
     // The (possibly) mutated copies of entries in the piece table
     var changeDescription = ChangeDescription()

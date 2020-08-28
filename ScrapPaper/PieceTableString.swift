@@ -30,8 +30,7 @@ private let logger = Logger(label: "PieceTableString")
   }
 
   public override var length: Int {
-    // TODO: Efficient implementation of `PieceTable.count`
-    pieceTable.distance(from: pieceTable.startIndex, to: pieceTable.endIndex)
+    return pieceTable.count
   }
 
   public override func character(at index: Int) -> unichar {
