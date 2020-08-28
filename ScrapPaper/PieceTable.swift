@@ -100,6 +100,42 @@ extension PieceTable: Collection {
     }
   }
 
+  public func index(_ i: Index, offsetBy distance: Int, limitedBy limit: Index) -> Index? {
+    var distance = distance
+    var contentIndex = i.contentIndex
+    for sliceIndex in i.pieceIndex ..< pieces.endIndex {
+      let slice = pieces[sliceIndex]
+      let charactersInSlice = sliceIndex == limit.pieceIndex
+        ? limit.contentIndex - contentIndex
+        : slice.endIndex - contentIndex
+      if distance < charactersInSlice {
+        return Index(pieceIndex: sliceIndex, contentIndex: contentIndex + distance)
+      }
+      if sliceIndex + 1 == pieces.endIndex {
+        contentIndex = 0
+      } else {
+        contentIndex = pieces[sliceIndex + 1].startIndex
+      }
+      distance -= charactersInSlice
+    }
+    if distance == 0 {
+      return limit
+    } else {
+      return nil
+    }
+  }
+
+  public func distance(from start: Index, to end: Index) -> Int {
+    var distance = 0
+    for sliceIndex in start.pieceIndex ... end.pieceIndex where sliceIndex < pieces.endIndex {
+      let piece = pieces[sliceIndex]
+      let lowerBound = (sliceIndex == start.pieceIndex) ? start.contentIndex : piece.startIndex
+      let upperBound = (sliceIndex == end.pieceIndex) ? end.contentIndex : piece.endIndex
+      distance += (upperBound - lowerBound)
+    }
+    return distance
+  }
+
   /// Gets the array for a source.
   private func sourceArray(for source: PieceSource) -> [unichar] {
     switch source {
