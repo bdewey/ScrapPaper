@@ -2,6 +2,14 @@
 
 import Foundation
 
+extension Range where Range.Bound == PieceTable.Index {
+  public init?(_ range: NSRange, in pieceTable: PieceTable) {
+    let startIndex = pieceTable.index(pieceTable.startIndex, offsetBy: range.location)
+    let endIndex = pieceTable.index(startIndex, offsetBy: range.length)
+    self = startIndex ..< endIndex
+  }
+}
+
 /// A piece table is a range-replaceable collection of UTF-16 values. At the storage layer, it uses two arrays to store the values:
 ///
 /// 1. Read-only *original contents*
@@ -111,18 +119,23 @@ extension PieceTable: Collection {
   public subscript<R: RangeExpression>(boundsExpression: R) -> [unichar] where R.Bound == Index {
     let bounds = boundsExpression.relative(to: self)
     guard !bounds.isEmpty else { return [] }
-    let pieceIndexLowerBound = bounds.lowerBound.pieceIndex
-    let pieceIndexUpperBound = bounds.upperBound.pieceIndex
     var results = [unichar]()
-    var pieceIndex = pieceIndexLowerBound
-    repeat {
+    for pieceIndex in bounds.lowerBound.pieceIndex ... bounds.upperBound.pieceIndex where pieceIndex < pieces.endIndex {
       let piece = pieces[pieceIndex]
-      let lowerBound = (pieceIndex == pieceIndexLowerBound) ? bounds.lowerBound.contentIndex : piece.startIndex
-      let upperBound = (pieceIndex == pieceIndexUpperBound) ? bounds.upperBound.contentIndex : piece.endIndex
+      let lowerBound = (pieceIndex == bounds.lowerBound.pieceIndex) ? bounds.lowerBound.contentIndex : piece.startIndex
+      let upperBound = (pieceIndex == bounds.upperBound.pieceIndex) ? bounds.upperBound.contentIndex : piece.endIndex
       results.append(contentsOf: sourceArray(for: piece.source)[lowerBound ..< upperBound])
-      pieceIndex += 1
-    } while pieceIndex < pieceIndexUpperBound
+    }
     return results
+  }
+
+  public func characters<R: RangeExpression>(at boundsExpression: R) -> [unichar] where R.Bound == Index {
+    return self[boundsExpression]
+  }
+
+  public var string: String {
+    let characters = self.characters(at: startIndex...)
+    return String(utf16CodeUnits: characters, count: characters.count)
   }
 }
 

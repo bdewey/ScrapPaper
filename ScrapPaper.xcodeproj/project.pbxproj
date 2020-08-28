@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D326C5E6246897320084F307 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D326C5E5246897320084F307 /* TextView.swift */; };
+		D38F723324F3129100E09008 /* PieceTablePlainTextStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F723224F3129100E09008 /* PieceTablePlainTextStorageTests.swift */; };
+		D38F723524F335E900E09008 /* PieceTableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38F723424F335E900E09008 /* PieceTableTests.swift */; };
+		D38F723B24F95D1600E09008 /* PieceTablePlainTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = D38F723A24F95D1600E09008 /* PieceTablePlainTextStorage.m */; };
 		D3E63CAF2464462200A704BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CAE2464462200A704BE /* AppDelegate.swift */; };
 		D3E63CB12464462200A704BE /* DocumentBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CB02464462200A704BE /* DocumentBrowserViewController.swift */; };
 		D3E63CB32464462200A704BE /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CB22464462200A704BE /* DocumentView.swift */; };
@@ -18,8 +21,8 @@
 		D3E63CD32464462300A704BE /* ScrapPaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CD22464462300A704BE /* ScrapPaperUITests.swift */; };
 		D3E63CE224644FEA00A704BE /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D3E63CE124644FEA00A704BE /* Logging */; };
 		D3EFD37C2487E2070055369F /* PieceTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EFD37B2487E2070055369F /* PieceTable.swift */; };
-		D3F9B7C124E057F000E9C48C /* PieceTablePlainTextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9B7C024E057F000E9C48C /* PieceTablePlainTextStorage.swift */; };
 		D3F9B7C324E0CC2E00E9C48C /* PerformanceCounters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9B7C224E0CC2E00E9C48C /* PerformanceCounters.swift */; };
+		D3F9B7C524F17E5700E9C48C /* PieceTableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9B7C424F17E5700E9C48C /* PieceTableString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,11 @@
 
 /* Begin PBXFileReference section */
 		D326C5E5246897320084F307 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
+		D38F723224F3129100E09008 /* PieceTablePlainTextStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTablePlainTextStorageTests.swift; sourceTree = "<group>"; };
+		D38F723424F335E900E09008 /* PieceTableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTableTests.swift; sourceTree = "<group>"; };
+		D38F723624F95CCF00E09008 /* ScrapPaper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ScrapPaper-Bridging-Header.h"; sourceTree = "<group>"; };
+		D38F723924F95D1600E09008 /* PieceTablePlainTextStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PieceTablePlainTextStorage.h; sourceTree = "<group>"; };
+		D38F723A24F95D1600E09008 /* PieceTablePlainTextStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PieceTablePlainTextStorage.m; sourceTree = "<group>"; };
 		D3E63CAB2464462200A704BE /* Scrap Paper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scrap Paper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3E63CAE2464462200A704BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3E63CB02464462200A704BE /* DocumentBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentBrowserViewController.swift; sourceTree = "<group>"; };
@@ -56,8 +64,8 @@
 		D3E63CD22464462300A704BE /* ScrapPaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapPaperUITests.swift; sourceTree = "<group>"; };
 		D3E63CD42464462300A704BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3EFD37B2487E2070055369F /* PieceTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTable.swift; sourceTree = "<group>"; };
-		D3F9B7C024E057F000E9C48C /* PieceTablePlainTextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTablePlainTextStorage.swift; sourceTree = "<group>"; };
 		D3F9B7C224E0CC2E00E9C48C /* PerformanceCounters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceCounters.swift; sourceTree = "<group>"; };
+		D3F9B7C424F17E5700E9C48C /* PieceTableString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTableString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,10 +124,13 @@
 				D3E63CBE2464462300A704BE /* Info.plist */,
 				D3E63CBB2464462300A704BE /* LaunchScreen.storyboard */,
 				D3EFD37B2487E2070055369F /* PieceTable.swift */,
-				D3F9B7C024E057F000E9C48C /* PieceTablePlainTextStorage.swift */,
+				D3F9B7C424F17E5700E9C48C /* PieceTableString.swift */,
 				D3E63CB42464462200A704BE /* TextStorageDocument.swift */,
 				D326C5E5246897320084F307 /* TextView.swift */,
 				D3F9B7C224E0CC2E00E9C48C /* PerformanceCounters.swift */,
+				D38F723624F95CCF00E09008 /* ScrapPaper-Bridging-Header.h */,
+				D38F723924F95D1600E09008 /* PieceTablePlainTextStorage.h */,
+				D38F723A24F95D1600E09008 /* PieceTablePlainTextStorage.m */,
 			);
 			path = ScrapPaper;
 			sourceTree = "<group>";
@@ -129,6 +140,8 @@
 			children = (
 				D3E63CC72464462300A704BE /* ScrapPaperTests.swift */,
 				D3E63CC92464462300A704BE /* Info.plist */,
+				D38F723224F3129100E09008 /* PieceTablePlainTextStorageTests.swift */,
+				D38F723424F335E900E09008 /* PieceTableTests.swift */,
 			);
 			path = ScrapPaperTests;
 			sourceTree = "<group>";
@@ -213,6 +226,7 @@
 				TargetAttributes = {
 					D3E63CAA2464462200A704BE = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1200;
 					};
 					D3E63CC22464462300A704BE = {
 						CreatedOnToolsVersion = 11.4;
@@ -278,7 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3F9B7C124E057F000E9C48C /* PieceTablePlainTextStorage.swift in Sources */,
+				D3F9B7C524F17E5700E9C48C /* PieceTableString.swift in Sources */,
 				D3F9B7C324E0CC2E00E9C48C /* PerformanceCounters.swift in Sources */,
 				D3E63CB52464462200A704BE /* TextStorageDocument.swift in Sources */,
 				D3E63CB12464462200A704BE /* DocumentBrowserViewController.swift in Sources */,
@@ -286,6 +300,7 @@
 				D3E63CB32464462200A704BE /* DocumentView.swift in Sources */,
 				D3E63CAF2464462200A704BE /* AppDelegate.swift in Sources */,
 				D3EFD37C2487E2070055369F /* PieceTable.swift in Sources */,
+				D38F723B24F95D1600E09008 /* PieceTablePlainTextStorage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +308,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D38F723324F3129100E09008 /* PieceTablePlainTextStorageTests.swift in Sources */,
 				D3E63CC82464462300A704BE /* ScrapPaperTests.swift in Sources */,
+				D38F723524F335E900E09008 /* PieceTableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +467,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2UU8WDD8H;
 				INFOPLIST_FILE = ScrapPaper/Info.plist;
@@ -460,6 +478,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.brians-brain.ScrapPaper";
 				PRODUCT_MODULE_NAME = ScrapPaper;
 				PRODUCT_NAME = "Scrap Paper";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScrapPaper/ScrapPaper-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -469,6 +489,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K2UU8WDD8H;
 				INFOPLIST_FILE = ScrapPaper/Info.plist;
@@ -479,6 +500,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.brians-brain.ScrapPaper";
 				PRODUCT_MODULE_NAME = ScrapPaper;
 				PRODUCT_NAME = "Scrap Paper";
+				SWIFT_OBJC_BRIDGING_HEADER = "ScrapPaper/ScrapPaper-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
