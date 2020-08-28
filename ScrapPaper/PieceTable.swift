@@ -100,6 +100,10 @@ extension PieceTable: Collection {
     }
   }
 
+  public func index(_ i: Index, offsetBy distance: Int) -> Index {
+    return index(i, offsetBy: distance, limitedBy: endIndex)!
+  }
+
   public func index(_ i: Index, offsetBy distance: Int, limitedBy limit: Index) -> Index? {
     var distance = distance
     var contentIndex = i.contentIndex
