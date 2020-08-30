@@ -169,6 +169,7 @@ extension PieceTable: Collection {
     return results
   }
 
+  /// Copies characters from a range into the provided buffer. The buffer must be the right size to hold the copied characters.
   public func copyCharacters<R: RangeExpression>(at range: R, to buffer: UnsafeMutablePointer<unichar>) where R.Bound == Index {
     var buffer = buffer
     let bounds = range.relative(to: self)
@@ -187,6 +188,7 @@ extension PieceTable: Collection {
     }
   }
 
+  /// Return the contents of the PieceTable as a string.
   public var string: String {
     return String(utf16CodeUnits: self[startIndex...], count: count)
   }
