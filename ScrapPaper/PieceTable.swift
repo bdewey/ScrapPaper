@@ -178,7 +178,11 @@ extension PieceTable: Collection {
       let lowerBound = (pieceIndex == bounds.lowerBound.pieceIndex) ? bounds.lowerBound.contentIndex : piece.startIndex
       let upperBound = (pieceIndex == bounds.upperBound.pieceIndex) ? bounds.upperBound.contentIndex : piece.endIndex
       let count = upperBound - lowerBound
-      copyFromArray(sourceArray(for: piece.source), to: buffer, location: lowerBound, count: count)
+      sourceArray(for: piece.source).withUnsafePointer { arrayPointer in
+        var arrayPointer = arrayPointer
+        arrayPointer += lowerBound
+        buffer.assign(from: arrayPointer, count: count)
+      }
       buffer += count
     }
   }
@@ -188,10 +192,13 @@ extension PieceTable: Collection {
   }
 }
 
-private func copyFromArray<T>(_ arrayPointer: UnsafePointer<T>, to buffer: UnsafeMutablePointer<T>, location: Int, count: Int) {
-  var arrayPointer = arrayPointer
-  arrayPointer += location
-  buffer.assign(from: arrayPointer, count: count)
+private extension Array {
+  /// I don't know why there isn't a version of this provided by Array -- Array can cast to an UnsafePointer and that's what I need
+  /// to execute a copy, but the standard library provides all sorts of other pointers instead. I feel like there's something obvious about
+  /// pointers in Swift that I don't understand.
+  func withUnsafePointer(_ body: (UnsafePointer<Element>) -> Void) {
+    body(self)
+  }
 }
 
 extension PieceTable: RangeReplaceableCollection {
