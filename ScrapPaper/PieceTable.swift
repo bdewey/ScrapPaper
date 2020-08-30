@@ -163,24 +163,35 @@ extension PieceTable: Collection {
   public subscript<R: RangeExpression>(boundsExpression: R) -> [unichar] where R.Bound == Index {
     let bounds = boundsExpression.relative(to: self)
     guard !bounds.isEmpty else { return [] }
-    var results = [unichar]()
+    let count = distance(from: bounds.lowerBound, to: bounds.upperBound)
+    var results = Array<unichar>(unsafeUninitializedCapacity: count, initializingWith: { _, _ in })
+    copyCharacters(at: bounds, to: &results)
+    return results
+  }
+
+  public func copyCharacters<R: RangeExpression>(at range: R, to buffer: UnsafeMutablePointer<unichar>) where R.Bound == Index {
+    var buffer = buffer
+    let bounds = range.relative(to: self)
+    guard !bounds.isEmpty else { return }
     for pieceIndex in bounds.lowerBound.pieceIndex ... bounds.upperBound.pieceIndex where pieceIndex < pieces.endIndex {
       let piece = pieces[pieceIndex]
       let lowerBound = (pieceIndex == bounds.lowerBound.pieceIndex) ? bounds.lowerBound.contentIndex : piece.startIndex
       let upperBound = (pieceIndex == bounds.upperBound.pieceIndex) ? bounds.upperBound.contentIndex : piece.endIndex
-      results.append(contentsOf: sourceArray(for: piece.source)[lowerBound ..< upperBound])
+      let count = upperBound - lowerBound
+      copyFromArray(sourceArray(for: piece.source), to: buffer, location: lowerBound, count: count)
+      buffer += count
     }
-    return results
-  }
-
-  public func characters<R: RangeExpression>(at boundsExpression: R) -> [unichar] where R.Bound == Index {
-    return self[boundsExpression]
   }
 
   public var string: String {
-    let characters = self.characters(at: startIndex...)
-    return String(utf16CodeUnits: characters, count: characters.count)
+    return String(utf16CodeUnits: self[startIndex...], count: count)
   }
+}
+
+private func copyFromArray<T>(_ arrayPointer: UnsafePointer<T>, to buffer: UnsafeMutablePointer<T>, location: Int, count: Int) {
+  var arrayPointer = arrayPointer
+  arrayPointer += location
+  buffer.assign(from: arrayPointer, count: count)
 }
 
 extension PieceTable: RangeReplaceableCollection {

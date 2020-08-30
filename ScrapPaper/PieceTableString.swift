@@ -39,9 +39,7 @@ private let logger = Logger(label: "PieceTableString")
 
   public override func getCharacters(_ buffer: UnsafeMutablePointer<unichar>, range: NSRange) {
     let nativeRange = Range(range, in: pieceTable)!
-    let characters = pieceTable.characters(at: nativeRange)
-    assert(range.length == characters.count)
-    buffer.assign(from: characters, count: characters.count)
+    pieceTable.copyCharacters(at: nativeRange, to: buffer)
   }
 
   public override func replaceCharacters(in range: NSRange, with aString: String) {
