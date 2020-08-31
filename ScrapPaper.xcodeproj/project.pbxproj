@@ -21,7 +21,6 @@
 		D3E63CD32464462300A704BE /* ScrapPaperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E63CD22464462300A704BE /* ScrapPaperUITests.swift */; };
 		D3E63CE224644FEA00A704BE /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = D3E63CE124644FEA00A704BE /* Logging */; };
 		D3EFD37C2487E2070055369F /* PieceTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EFD37B2487E2070055369F /* PieceTable.swift */; };
-		D3F9B7C324E0CC2E00E9C48C /* PerformanceCounters.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9B7C224E0CC2E00E9C48C /* PerformanceCounters.swift */; };
 		D3F9B7C524F17E5700E9C48C /* PieceTableString.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9B7C424F17E5700E9C48C /* PieceTableString.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +63,6 @@
 		D3E63CD22464462300A704BE /* ScrapPaperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrapPaperUITests.swift; sourceTree = "<group>"; };
 		D3E63CD42464462300A704BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3EFD37B2487E2070055369F /* PieceTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTable.swift; sourceTree = "<group>"; };
-		D3F9B7C224E0CC2E00E9C48C /* PerformanceCounters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceCounters.swift; sourceTree = "<group>"; };
 		D3F9B7C424F17E5700E9C48C /* PieceTableString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieceTableString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,7 +125,6 @@
 				D3F9B7C424F17E5700E9C48C /* PieceTableString.swift */,
 				D3E63CB42464462200A704BE /* TextStorageDocument.swift */,
 				D326C5E5246897320084F307 /* TextView.swift */,
-				D3F9B7C224E0CC2E00E9C48C /* PerformanceCounters.swift */,
 				D38F723624F95CCF00E09008 /* ScrapPaper-Bridging-Header.h */,
 				D38F723924F95D1600E09008 /* PieceTablePlainTextStorage.h */,
 				D38F723A24F95D1600E09008 /* PieceTablePlainTextStorage.m */,
@@ -293,7 +290,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3F9B7C524F17E5700E9C48C /* PieceTableString.swift in Sources */,
-				D3F9B7C324E0CC2E00E9C48C /* PerformanceCounters.swift in Sources */,
 				D3E63CB52464462200A704BE /* TextStorageDocument.swift in Sources */,
 				D3E63CB12464462200A704BE /* DocumentBrowserViewController.swift in Sources */,
 				D326C5E6246897320084F307 /* TextView.swift in Sources */,

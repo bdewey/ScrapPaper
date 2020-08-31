@@ -26,8 +26,6 @@ private let log = OSLog(subsystem: "org.brians-brain.ScrapPaper", category: "Tex
 struct TextView: UIViewRepresentable {
   let textStorage: NSTextStorage
 
-  @EnvironmentObject var performanceCounters: PerformanceCounters
-
   /// Creates a UITextView bound to `textStorage`
   func makeUIView(context: Context) -> UITextView {
     let layoutManager = NSLayoutManager()
@@ -35,7 +33,6 @@ struct TextView: UIViewRepresentable {
     layoutManager.addTextContainer(textContainer)
     textStorage.addLayoutManager(layoutManager)
     let textView = ReadableTextView(frame: .zero, textContainer: textContainer)
-    textView.performanceCounters = performanceCounters
     return textView
   }
 
@@ -50,8 +47,6 @@ struct IncrementalParsingTextView_Previews: PreviewProvider {
 
 /// This is a simple subclass that constrains the text container to the readableContentGuide.
 private final class ReadableTextView: UITextView {
-  var performanceCounters: PerformanceCounters?
-
   override func layoutSubviews() {
     super.layoutSubviews()
     textContainerInset = UIEdgeInsets(
@@ -64,10 +59,7 @@ private final class ReadableTextView: UITextView {
 
   override func insertText(_ text: String) {
     os_signpost(.begin, log: log, name: "keystroke")
-    let start = CACurrentMediaTime()
     super.insertText(text)
-    let end = CACurrentMediaTime()
     os_signpost(.end, log: log, name: "keystroke")
-    performanceCounters?.addObservation((end - start) * 1000, forKey: "typing")
   }
 }

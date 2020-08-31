@@ -3,6 +3,7 @@
 import Foundation
 
 extension Range where Range.Bound == PieceTable.Index {
+  /// A constructor equivalent to Range(_: NSRange, in: String) for PieceTable use.
   public init?(_ range: NSRange, in pieceTable: PieceTable) {
     let startIndex = pieceTable.index(pieceTable.startIndex, offsetBy: range.location)
     let endIndex = pieceTable.index(startIndex, offsetBy: range.length)
@@ -44,6 +45,7 @@ public struct PieceTable {
     var isEmpty: Bool { startIndex == endIndex }
   }
 
+  /// For performance, maintain the current count of UTF-16 characters instead of computing it from walking the pieces.
   public private(set) var count: Int
 
   /// The logical contents of the collection, expressed as an array of pieces from either `originalContents` or `newContents`
@@ -82,6 +84,7 @@ extension PieceTable: Collection {
     if let piece = pieces.first, !piece.isEmpty {
       return Index(pieceIndex: 0, contentIndex: piece.startIndex)
     } else {
+      // Special case: If the first piece is empty, we need to say startIndex == endIndex
       return endIndex
     }
   }
